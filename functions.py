@@ -28,3 +28,15 @@ def prodsale(season):
 		count=count+1
 		if(count>show):
 			break
+
+def zipSale(season):
+	sItem={}
+	
+	for i in range(len(season['3_ZIP'])):
+		zipcode = (season['3_ZIP']).iloc[i]
+		pos = (season['EXT_SLS_AMT']).iloc[i]
+		if zipcode in sItem:
+			sItem[zipcode] = sItem[zipcode] + pos
+		else:
+			sItem[zipcode] = pos
+	return sItem
